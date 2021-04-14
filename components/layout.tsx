@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head';
+import Link from 'next/link';
 
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({
   children,
@@ -16,15 +16,18 @@ export default function Layout({
    * https://bulma.io/documentation/components/navbar/#navbar-menu
    * https://github.com/jgthms/bulma/issues/856
    */
-  const toggleStyles = (event) => {
-    document.querySelector("#burger").classList.toggle("is-active");
-    document.querySelector("#navbarmenu").classList.toggle("is-active");
+  const toggleStyles = () => {
+    document.querySelector('#burger').classList.toggle('is-active');
+    document.querySelector('#navbarmenu').classList.toggle('is-active');
   };
 
   return (
     <div>
       <Head>
-        <title>{siteTitle} {home ? "Homepage" : ""}</title>
+        <title>
+          {siteTitle}
+          {home ? 'Homepage' : ''}
+        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <header>
@@ -60,7 +63,7 @@ export default function Layout({
               <div className="navbar-item">
                 <div className="buttons">
                   <a
-                    onClick={() => alert("You clicked the button!")}
+                    onClick={() => alert('You clicked the button!')}
                     className="button is-primary"
                   >
                     Click

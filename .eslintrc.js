@@ -21,5 +21,18 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/react-in-jsx-scope': 'off',
+    'import/extensions': ['error', {
+      js: 'never',
+      ts: 'never',
+      jsx: 'never',
+      tsx: 'never',
+    }],
+    'import/resolver': {
+      'webpack': {
+        'config': './next.config.js',
+      },
+    },
   },
 };

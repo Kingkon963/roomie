@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function Counter() {
   const [count, setCount] = useState(0);
@@ -9,15 +9,21 @@ export default function Counter() {
 
   function handleAlertClick() {
     setTimeout(() => {
-      alert("You clicked on: " + count);
+      //  alert("You clicked on: " + count);
     }, 1000);
   }
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <button onClick={handleAlertClick}>Show alert</button>
+      <p>
+        You clicked
+        {' '}
+        {count}
+        {' '}
+        times
+      </p>
+      <button type="button" onClick={() => setCount(count + 1)}>Click me</button>
+      <button type="button" onClick={() => handleAlertClick}>Show alert</button>
     </div>
   );
 }
