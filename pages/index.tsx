@@ -1,28 +1,34 @@
+// eslint-disable-next-line import/no-unresolved
 import Layout from '../components/layout';
-import Counter from '../components/counter';
+// eslint-disable-next-line import/no-unresolved
 
 const Index = () => (
-  <Layout home>
-    <section className="section">
-      <div className="container">
-        <h1 className="title">
-          Hello World from
-          {' '}
-          <a href="https://nextjs.org/">Next.js</a>
-          {' '}
-          and
-          {' '}
-          <a href="https://bulma.io/">Bulma</a>
-          !
-        </h1>
+  <Layout title="Home">
+    <section className="section main-section">
+      <div className="container is-fluid">
+        <div className="columns" style={{ border: '3px solid red' }}>
+          <div className="column has-text-centered">
+            <h1>Left</h1>
+          </div>
+
+          <div className="column has-text-centered is-half" style={{ border: '3px solid red' }}>
+            <h1>Middle</h1>
+          </div>
+
+          <div className="column has-text-centered">
+            <h1>Right</h1>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section className="section">
-      <div className="container">
-        <Counter />
-      </div>
-    </section>
+    <style jsx>
+      {`
+        .main-section {
+          min-height: 100vh;
+        }
+      `}
+    </style>
   </Layout>
 );
 

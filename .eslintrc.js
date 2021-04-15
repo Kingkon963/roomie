@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 module.exports = {
   env: {
     browser: true,
@@ -21,17 +22,20 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', 'jsx', '.jsx', '.tsx'] }],
     'react/react-in-jsx-scope': 'off',
+    'linebreak-style': 'off',
     'import/extensions': ['error', {
       js: 'never',
       ts: 'never',
       jsx: 'never',
       tsx: 'never',
     }],
+  },
+  settings: {
     'import/resolver': {
-      'webpack': {
-        'config': './next.config.js',
+      webpack: {
+        config: './next.config.js',
       },
     },
   },
