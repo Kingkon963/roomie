@@ -1,0 +1,31 @@
+$tile-border-color: #78767e;
+$tile-hover-color: #4C4B50;
+$tile-font-color: #727173;
+$tile-font-color-active: #ececec;
+
+.tileGrid {
+    border: 1px solid $tile-border-color;
+    border-right: none;
+    border-bottom: none;
+}
+.tile{
+    border: 1px solid $tile-border-color;
+    border-left: none;
+    border-top: none;
+    cursor: pointer;
+    padding: 2em;
+    font-size: .7em;
+    color: $tile-font-color;
+    &:nth-of-type(even){
+        border: 2px solid red;
+        border-left: none;
+    }
+    .icon {
+        font-size: 2em;
+        padding-bottom: 0px;
+    }
+}
+.tile:hover {
+    background-color: $tile-hover-color;
+    color: $tile-font-color-active;
+}

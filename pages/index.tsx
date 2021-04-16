@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import Layout from '../components/layout';
 // eslint-disable-next-line import/no-unresolved
+import LeftPanel from '../components/leftPanel';
 
 const Index = () => (
   <Layout title="Home">
@@ -8,7 +9,7 @@ const Index = () => (
       <div className="container is-fluid">
         <div className="columns" style={{ border: '3px solid red' }}>
           <div className="column has-text-centered">
-            <h1>Left</h1>
+            <LeftPanel />
           </div>
 
           <div className="column has-text-centered is-half" style={{ border: '3px solid red' }}>
