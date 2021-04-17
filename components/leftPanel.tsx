@@ -1,12 +1,62 @@
+import { useEffect, useState } from 'react';
+
 // eslint-disable-next-line import/no-unresolved
 import CategoryTiles from './categoryTiles';
-
+// eslint-disable-next-line import/no-unresolved
+import Paginator from './paginator';
 import styles from '../styles/leftPanel.module.scss';
 
+const categories = [
+  {
+    id: 0,
+    name: 'Living Room',
+  },
+  {
+    id: 1,
+    name: 'Living Room',
+  },
+  {
+    id: 2,
+    name: 'Living Room',
+  },
+  {
+    id: 3,
+    name: 'Living Room',
+  },
+  {
+    id: 4,
+    name: 'Living Room',
+  },
+  {
+    id: 5,
+    name: 'Living Room',
+  },
+  {
+    id: 6,
+    name: 'Living Room',
+  },
+  {
+    id: 7,
+    name: 'Living Room',
+  },
+  {
+    id: 8,
+    name: 'Living Room',
+  },
+];
+
 export default function LeftPanel() {
+  const [totalPage, setTotalPage]: [number, any] = useState(null);
+  const [currentPage, setCurrentPage]: [number, any] = useState(1);
+
+  useEffect(() => {
+    const pageCount = Math.ceil(categories.length / 6);
+    setTotalPage(pageCount);
+  }, []);
+
   return (
     <div className={styles.leftPanel}>
-      <div className="box">
+      <div className="box pb-2">
         <div className={`hero ${styles.header}`}>
           <div className={`hero-body px-0 ${styles.headerBody}`}>
             <nav className="level is-mobile">
@@ -43,11 +93,13 @@ export default function LeftPanel() {
           </div>
         </div>
 
-        <CategoryTiles />
+        <CategoryTiles categories={categories.slice(6 * (currentPage - 1), 6 * currentPage)} />
 
-        <div className="block">
-          Pagination
-        </div>
+        <Paginator
+          totalPage={totalPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
 
       </div>
       <div className="box">
