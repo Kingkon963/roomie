@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
 @import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
@@ -12,7 +12,7 @@ $app-dark: #47474D;
 $app-primary: #005CF7;
 
 // Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
+$family-sans-serif: "Josefin Sans", sans-serif;
 $primary: $app-primary;
 $dark: $app-dark;
 $widescreen-enabled: false;

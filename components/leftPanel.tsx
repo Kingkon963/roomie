@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import CategoryTiles from './categoryTiles';
 // eslint-disable-next-line import/no-unresolved
 import Paginator from './paginator';
+// eslint-disable-next-line import/no-unresolved
+import CartButotn from './cartButton';
+
 import styles from '../styles/leftPanel.module.scss';
 
 const categories = [
@@ -103,7 +106,23 @@ export default function LeftPanel() {
 
       </div>
       <div className="box">
-        {}
+        <div className="level is-mobile">
+          <div className="level-left">
+            <figure className="image is-48x48">
+              <img className="is-rounded" src="https://bulma.io/images/placeholders/48x48.png" alt="profile pic" />
+            </figure>
+          </div>
+          <div className="level-item has-text-white is-flex is-flex-direction-column is-align-items-start px-3">
+
+            <h1 className=" is-size-6 is-size-7-mobile">Clark Robertson</h1>
+            <h2 className=" is-size-7 ">San fransisco, California</h2>
+
+          </div>
+          <div className="level-item">
+            <CartButotn />
+          </div>
+        </div>
+
       </div>
     </div>
   );
