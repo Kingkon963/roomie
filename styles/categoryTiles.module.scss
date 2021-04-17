@@ -3,23 +3,25 @@ $tile-hover-color: #4C4B50;
 $tile-font-color: #727173;
 $tile-font-color-active: #ececec;
 
+$tile-height: 130px;
+
 .tileGrid {
     border: 1px solid $tile-border-color;
     border-right: none;
     border-bottom: none;
+}
+.tileHeight {
+    height: $tile-height;
 }
 .tile{
     border: 1px solid $tile-border-color;
     border-left: none;
     border-top: none;
     cursor: pointer;
-    padding: 2em;
-    font-size: .7em;
+    font-size: .8em;
     color: $tile-font-color;
-    &:nth-of-type(even){
-        border: 2px solid red;
-        border-left: none;
-    }
+    height: $tile-height;
+
     .icon {
         font-size: 2em;
         padding-bottom: 0px;
