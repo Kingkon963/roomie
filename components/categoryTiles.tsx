@@ -36,7 +36,7 @@ export default function CategoryTiles({ categories } : { categories: {name : str
   }
 
   return (
-    <div className={`columns is-flex-wrap-wrap mt-2 px-0 has-text-white is-mobile ${styles.tileGrid}`}>
+    <div className={`columns is-flex-wrap-wrap mt-1 px-0 has-text-white is-mobile ${styles.tileGrid}`}>
       {tiles}
     </div>
   );

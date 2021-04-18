@@ -6,6 +6,8 @@ import CategoryTiles from './categoryTiles';
 import Paginator from './paginator';
 // eslint-disable-next-line import/no-unresolved
 import CartButotn from './cartButton';
+// eslint-disable-next-line import/no-unresolved
+import Cart from './cart';
 
 import styles from '../styles/leftPanel.module.scss';
 
@@ -51,11 +53,20 @@ const categories = [
 export default function LeftPanel() {
   const [totalPage, setTotalPage]: [number, any] = useState(null);
   const [currentPage, setCurrentPage]: [number, any] = useState(1);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     const pageCount = Math.ceil(categories.length / 6);
     setTotalPage(pageCount);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
 
   return (
     <div className={styles.leftPanel}>
@@ -64,7 +75,11 @@ export default function LeftPanel() {
           <div className={`hero-body px-0 ${styles.headerBody}`}>
             <nav className="level is-mobile">
               <div className="level-left has-text-centered">
-                <button type="button" className="button is-clickable is-primary is-outlined">
+                <button
+                  type="button"
+                  className={`is-clickable ${styles.menuToggleBtn}`}
+                  onClick={() => toggleMenu()}
+                >
                   <span className="icon has-text-white-ter">
                     <i className="fas fa-bars ">
                       {}
@@ -82,12 +97,16 @@ export default function LeftPanel() {
           <div className="hero-footer">
             <div className="level">
               <div className="level-left">
-                <button type="button" style={{ visibility: 'hidden' }}>
-                  sda
+                <button className={styles.menuToggleBtn} type="button" style={{ visibility: 'hidden' }}>
+                  <span className="icon has-text-white-ter">
+                    <i className="fas fa-bars ">
+                      {}
+                    </i>
+                  </span>
                 </button>
               </div>
               <div className="level-item">
-                <p className="subtitle is-size-7 has-text-white-ter mb-1">
+                <p className="subtitle is-size-7 has-text-white-ter mb-3">
                   Choose Room Type
                 </p>
               </div>
@@ -96,15 +115,28 @@ export default function LeftPanel() {
           </div>
         </div>
 
-        <CategoryTiles categories={categories.slice(6 * (currentPage - 1), 6 * currentPage)} />
+        <div className={`${isMenuOpen ? '' : 'is-hidden'}`}>
+          {isCartOpen ? (
+            <>
+              <Cart />
+            </>
+          ) : (
+            <>
+              <CategoryTiles
+                categories={categories.slice(6 * (currentPage - 1), 6 * currentPage)}
+              />
 
-        <Paginator
-          totalPage={totalPage}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+              <Paginator
+                totalPage={totalPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            </>
+          )}
+        </div>
 
       </div>
+
       <div className="box">
         <div className="level is-mobile">
           <div className="level-left">
@@ -119,7 +151,7 @@ export default function LeftPanel() {
 
           </div>
           <div className="level-item">
-            <CartButotn />
+            <CartButotn onClick={() => toggleCart()} />
           </div>
         </div>
 

@@ -1,7 +1,11 @@
-export default function CartButton() {
+export default function CartButton({
+  onClick,
+}: {
+  onClick : any
+}) {
   return (
     <>
-      <button className="is-clickable" type="button">
+      <button className="is-clickable" type="button" onClick={onClick}>
         <span>2</span>
         <i className="fas fa-shopping-bag" />
       </button>
