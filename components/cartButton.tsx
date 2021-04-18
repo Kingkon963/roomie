@@ -15,6 +15,7 @@ export default function CartButton() {
                 height: 32px;
                 color: white;
                 position: relative;
+                transition: all .5s;
             }
             span{
                 position: absolute;
