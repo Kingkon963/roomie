@@ -18,35 +18,35 @@ const categories = [
   },
   {
     id: 1,
-    name: 'Living Room',
+    name: 'Kitchen',
   },
   {
     id: 2,
-    name: 'Living Room',
+    name: 'Bedroom',
   },
   {
     id: 3,
-    name: 'Living Room',
+    name: 'Home Office',
   },
   {
     id: 4,
-    name: 'Living Room',
+    name: 'Home Gym',
   },
   {
     id: 5,
-    name: 'Living Room',
+    name: 'Closets',
   },
   {
     id: 6,
-    name: 'Living Room',
+    name: 'Class Room',
   },
   {
     id: 7,
-    name: 'Living Room',
+    name: 'Drawing Room',
   },
   {
     id: 8,
-    name: 'Living Room',
+    name: 'Dining Room',
   },
 ];
 

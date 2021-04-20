@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import PropertyPanel from './PropertyPanel';
+import PropertyPanel from './propertyPanel';
 // eslint-disable-next-line import/no-unresolved
 import ObjectPanel from './objectPanel';
 

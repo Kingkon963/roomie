@@ -26,6 +26,8 @@ export default function Paginator(
     }
   };
 
+  const generateKey = () => Date.now();
+
   return (
     <div className="block">
       <div className="level is-mobile">
@@ -42,8 +44,8 @@ export default function Paginator(
         </div>
         <div className="level-item has-text-white">
           {Array(totalPage).fill(<>o</>)
-            .map((_e, idx) => ((idx + 1) === currentPage ? <i className="fas fa-circle mr-1" />
-              : <i className="far fa-circle mr-1" />))}
+            .map((_e, idx) => ((idx + 1) === currentPage ? <i className="fas fa-circle mr-1" key={`fas${generateKey()}`} />
+              : <i className="far fa-circle mr-1" key={`far${generateKey()}`} />))}
         </div>
         <div className="level-item has-text-white">
           <button
