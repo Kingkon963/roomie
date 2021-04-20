@@ -23,7 +23,7 @@ export default function Layout({
       <style jsx>
         {`
           .bg {
-           background-image: url('images/background.png');
+           background-image: url('images/background.webp');
            background-repeat: no-repeat;
            background-position: center;
            background-size: cover;
