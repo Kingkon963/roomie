@@ -2,22 +2,24 @@
 import Layout from '../components/layout';
 // eslint-disable-next-line import/no-unresolved
 import LeftPanel from '../components/leftPanel';
+// eslint-disable-next-line import/no-unresolved
+import RightPanel from '../components/rightPanel';
 
 const Index = () => (
   <Layout title="Home">
     <section className="section main-section">
       <div className="container is-fluid">
-        <div className="columns" style={{ border: '3px solid red' }}>
+        <div className="columns">
           <div className="column has-text-centered">
             <LeftPanel />
           </div>
 
-          <div className="column has-text-centered is-half" style={{ border: '3px solid red' }}>
+          <div className="column has-text-centered is-half">
             <h1>Middle</h1>
           </div>
 
           <div className="column has-text-centered">
-            <h1>Right</h1>
+            <RightPanel />
           </div>
         </div>
       </div>

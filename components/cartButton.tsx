@@ -20,6 +20,7 @@ export default function CartButton({
                 color: white;
                 position: relative;
                 transition: all .5s;
+                outline: none;
             }
             span{
                 position: absolute;
