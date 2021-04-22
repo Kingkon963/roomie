@@ -11,46 +11,7 @@ import Cart from './cart';
 
 import styles from '../styles/leftPanel.module.scss';
 
-const categories = [
-  {
-    id: 0,
-    name: 'Living Room',
-  },
-  {
-    id: 1,
-    name: 'Kitchen',
-  },
-  {
-    id: 2,
-    name: 'Bedroom',
-  },
-  {
-    id: 3,
-    name: 'Home Office',
-  },
-  {
-    id: 4,
-    name: 'Home Gym',
-  },
-  {
-    id: 5,
-    name: 'Closets',
-  },
-  {
-    id: 6,
-    name: 'Class Room',
-  },
-  {
-    id: 7,
-    name: 'Drawing Room',
-  },
-  {
-    id: 8,
-    name: 'Dining Room',
-  },
-];
-
-export default function LeftPanel() {
+export default function LeftPanel({ categories } : {categories: {id: number, name: string}[]}) {
   const [totalPage, setTotalPage]: [number, any] = useState(null);
   const [currentPage, setCurrentPage]: [number, any] = useState(1);
   const [isMenuOpen, setIsMenuOpen] = useState(true);

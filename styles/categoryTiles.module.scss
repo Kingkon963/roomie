@@ -3,6 +3,9 @@ $tile-hover-color: #4C4B50;
 $tile-font-color: #727173;
 $tile-font-color-active: #ececec;
 
+$tile-selected-color: #005CF7;
+$tile-selected-hover-color: lighten($tile-selected-color, 5%);
+
 $tile-height: 130px;
 
 .tileGrid {
@@ -30,4 +33,12 @@ $tile-height: 130px;
 .tile:hover {
     background-color: $tile-hover-color;
     color: $tile-font-color-active;
+}
+
+.isSelected {
+    background-color: $tile-selected-color;
+    color: $tile-font-color-active;
+}
+.isSelected:hover {
+    background-color: $tile-selected-hover-color;
 }
