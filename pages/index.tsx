@@ -8,10 +8,12 @@ import LeftPanel from '../components/leftPanel';
 import RightPanel from '../components/rightPanel';
 // eslint-disable-next-line import/no-unresolved
 import { CategoryProvider } from '../context/CategoryContext';
+// eslint-disable-next-line import/no-unresolved
+import Category from '../interfaces/Category';
 
 import getCategories from '../data/categories';
 
-const Index = ({ categories }: {categories: {id: number, name: string}[]}) => (
+const Index = ({ categories }: {categories: Category[]}) => (
   <Layout title="Home">
     <section className="section main-section">
       <div className="container is-fluid">
