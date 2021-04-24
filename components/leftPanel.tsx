@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 // eslint-disable-next-line import/no-unresolved
 import CategoryTiles from './categoryTiles';
@@ -44,9 +46,7 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
                   onClick={() => toggleMenu()}
                 >
                   <span className="icon has-text-white-ter">
-                    <i className="fas fa-bars ">
-                      {}
-                    </i>
+                    <FontAwesomeIcon icon={faBars} />
                   </span>
                 </button>
               </div>

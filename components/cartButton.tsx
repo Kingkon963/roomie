@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+
 export default function CartButton({
   onClick,
 }: {
@@ -7,7 +10,7 @@ export default function CartButton({
     <>
       <button className="is-clickable" type="button" onClick={onClick}>
         <span>2</span>
-        <i className="fas fa-shopping-bag" />
+        <FontAwesomeIcon icon={faShoppingBag} />
       </button>
       <style jsx>
         {`

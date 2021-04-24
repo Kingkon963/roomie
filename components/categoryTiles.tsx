@@ -1,4 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 // eslint-disable-next-line import/no-unresolved
 import { CategoryContext } from '../context/CategoryContext';
 // eslint-disable-next-line import/no-unresolved
@@ -39,9 +41,7 @@ export default function CategoryTiles({ categories }: { categories: Category[] }
           >
             <span className="icon-text is-flex is-flex-direction-column is-align-items-center">
               <span className="icon is-align-self-center">
-                <i className={`fas fa-home ${styles.icon}`}>
-                  {}
-                </i>
+                <FontAwesomeIcon icon={faHome} className={styles.icon} />
               </span>
               <span className="is-unselectable mt-3">{cat.name}</span>
             </span>
