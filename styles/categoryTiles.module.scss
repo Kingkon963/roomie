@@ -9,17 +9,18 @@ $tile-selected-hover-color: lighten($tile-selected-color, 5%);
 $tile-height: 130px;
 
 .tileGrid {
-    border: 1px solid $tile-border-color;
+    //border: 1px solid $tile-border-color;
     border-right: none;
     border-bottom: none;
+    margin: 0px;
 }
 .tileHeight {
     height: $tile-height;
 }
 .tile{
     border: 1px solid $tile-border-color;
-    border-left: none;
-    border-top: none;
+    //border-left: none;
+    //@warn: none;
     cursor: pointer;
     font-size: .8em;
     color: $tile-font-color;

@@ -8,10 +8,12 @@ import Paginator from './paginator';
 import CartButotn from './cartButton';
 // eslint-disable-next-line import/no-unresolved
 import Cart from './cart';
+// eslint-disable-next-line import/no-unresolved
+import Category from '../interfaces/Category';
 
 import styles from '../styles/leftPanel.module.scss';
 
-export default function LeftPanel({ categories } : {categories: {id: number, name: string}[]}) {
+export default function LeftPanel({ categories } : {categories: Category[]}) {
   const [totalPage, setTotalPage]: [number, any] = useState(null);
   const [currentPage, setCurrentPage]: [number, any] = useState(1);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -31,7 +33,7 @@ export default function LeftPanel({ categories } : {categories: {id: number, nam
 
   return (
     <div className={styles.leftPanel}>
-      <div className="box pb-2">
+      <div className="box pb-2 px-0">
         <div className={`hero ${styles.header}`}>
           <div className={`hero-body px-0 ${styles.headerBody}`}>
             <nav className="level is-mobile">
@@ -86,12 +88,15 @@ export default function LeftPanel({ categories } : {categories: {id: number, nam
               <CategoryTiles
                 categories={categories.slice(6 * (currentPage - 1), 6 * currentPage)}
               />
-
-              <Paginator
-                totalPage={totalPage}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-              />
+              {totalPage > 1
+                ? (
+                  <Paginator
+                    totalPage={totalPage}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                  />
+                )
+                : <></>}
             </>
           )}
         </div>

@@ -10,43 +10,21 @@ const getCategories = () => {
           objects: [
             {
               id: 0,
-              img: '/images/chair.jpg',
+              img: '/images/chair1.jpg',
+            },
+            {
+              id: 1,
+              img: '/images/chair2.jpg',
             },
           ],
         },
+        {
+          id: 0,
+          name: 'Tables',
+          objects: [
+          ],
+        },
       ],
-    },
-    {
-      id: 1,
-      name: 'Kitchen',
-    },
-    {
-      id: 2,
-      name: 'Bedroom',
-    },
-    {
-      id: 3,
-      name: 'Home Office',
-    },
-    {
-      id: 4,
-      name: 'Home Gym',
-    },
-    {
-      id: 5,
-      name: 'Closets',
-    },
-    {
-      id: 6,
-      name: 'Class Room',
-    },
-    {
-      id: 7,
-      name: 'Drawing Room',
-    },
-    {
-      id: 8,
-      name: 'Dining Room',
     },
   ];
 
