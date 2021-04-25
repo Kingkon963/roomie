@@ -15,7 +15,7 @@ $widescreen-enabled: false;
 $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-overflow-y: hidden;
+$body-overflow-y: scroll;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
@@ -36,8 +36,10 @@ $box-background-color: $app-dark;
 
 @import "../node_modules/bulma/bulma.sass";
 
-
-
 body {
     min-height: 100vh;
 }
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}  

@@ -1,3 +1,9 @@
+import { useState, useEffect } from 'react';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle as farCircle } from '@fortawesome/free-regular-svg-icons';
+
 export default function Paginator(
   {
     totalPage,
@@ -10,6 +16,13 @@ export default function Paginator(
         setCurrentPage: any,
     },
 ) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (totalPage > 1) setVisible(true);
+    else setVisible(false);
+  }, [totalPage]);
+
   const goNextPage = () => {
     if (currentPage < totalPage) {
       setCurrentPage(currentPage + 1);
@@ -29,7 +42,7 @@ export default function Paginator(
   const generateKey = () => Date.now();
 
   return (
-    <div className="block">
+    <div className={`block ${visible ? '' : 'is-invisible'}`}>
       <div className="level is-mobile">
         <div className="level-item has-text-white">
           <button
@@ -38,14 +51,14 @@ export default function Paginator(
             className="is-clickable"
           >
             <span className="icon is-small">
-              <i className="fas fa-chevron-left" />
+              <FontAwesomeIcon icon={faChevronLeft} />
             </span>
           </button>
         </div>
         <div className="level-item has-text-white">
           {Array(totalPage).fill(<>o</>)
-            .map((_e, idx) => ((idx + 1) === currentPage ? <i className="fas fa-circle mr-1" key={`fas${generateKey()}`} />
-              : <i className="far fa-circle mr-1" key={`far${generateKey()}`} />))}
+            .map((_e, idx) => ((idx + 1) === currentPage ? <FontAwesomeIcon icon={faCircle} className="mr-1" style={{ fontSize: '.5em' }} key={`fas${generateKey()}`} />
+              : <FontAwesomeIcon icon={farCircle} className="mr-1" style={{ fontSize: '.5em' }} key={`far${generateKey()}`} />))}
         </div>
         <div className="level-item has-text-white">
           <button
@@ -54,7 +67,7 @@ export default function Paginator(
             className="is-clickable"
           >
             <span className="icon is-small">
-              <i className="fas fa-chevron-right" />
+              <FontAwesomeIcon icon={faChevronRight} />
             </span>
           </button>
         </div>
@@ -62,9 +75,6 @@ export default function Paginator(
 
       <style jsx>
         {`
-            .fa-circle{
-                font-size: .5em;
-            }
             button{
                 background: transparent;
                 border: none;

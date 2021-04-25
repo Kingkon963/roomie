@@ -31,7 +31,7 @@ export default function CategoryTiles({ categories }: { categories: Category[] }
           className="column is-6 p-0"
           onClick={() => toggleCategory(cat)}
           onKeyPress={() => {}}
-          key={cat.id}
+          key={generateKey()}
           role="button"
           tabIndex={0}
         >

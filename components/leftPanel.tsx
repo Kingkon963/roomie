@@ -88,15 +88,11 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
               <CategoryTiles
                 categories={categories.slice(6 * (currentPage - 1), 6 * currentPage)}
               />
-              {totalPage > 1
-                ? (
-                  <Paginator
-                    totalPage={totalPage}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                  />
-                )
-                : <></>}
+              <Paginator
+                totalPage={totalPage}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
             </>
           )}
         </div>
@@ -107,14 +103,19 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
         <div className="level is-mobile">
           <div className="level-left">
             <figure className="image is-48x48">
-              <img className="is-rounded" src="https://bulma.io/images/placeholders/48x48.png" alt="profile pic" />
+              <img
+                className="is-rounded"
+                src="https://bulma.io/images/placeholders/48x48.png"
+                alt="profile pic"
+                draggable={false}
+              />
             </figure>
           </div>
-          <div className="level-item has-text-white is-flex is-flex-direction-column is-align-items-start px-3">
-
-            <h1 className=" is-size-6 is-size-7-mobile">Clark Robertson</h1>
-            <h2 className=" is-size-7 ">San fransisco, California</h2>
-
+          <div className="level-item is-flex is-flex-direction-column is-align-items-start px-3">
+            <div className="has-text-left">
+              <h1 className={styles.userName}>Clark Robertson</h1>
+              <h2 className={styles.userAddr}>San fransisco, California</h2>
+            </div>
           </div>
           <div className="level-item">
             <CartButotn onClick={() => toggleCart()} />

@@ -16,7 +16,7 @@ export default function ObjectTiles({
     if (selected) {
       const updatedTiles = selected.objects.map((obj) => (
         <div className={`tile is-child ${styles.isChild} box is-6 is-flex is-justify-content-center is-clickable`} key={generateKey()}>
-          <Image src={obj.img} width="100" height="100" />
+          <Image src={obj.img} width="100" height="100" draggable={false} />
         </div>
       ));
       setTiles(updatedTiles);

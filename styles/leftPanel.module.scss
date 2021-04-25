@@ -12,4 +12,21 @@
         border: none;
         font-size: 1.2em;
     }
+    .userName, .userAddr{
+        color: white;
+    }
+    .userName{
+        font-size: .7rem;
+    }
+    .userAddr{
+        font-size: .5rem;
+    }
+    @media (min-width: '576px'){
+        .userName{
+            font-size: .9rem;
+        }
+        .userAddr{
+            font-size: .7rem;
+        }
+    }
 }   

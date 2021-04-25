@@ -15,7 +15,7 @@ export default function ObjectPanel() {
 
   return (
     <>
-      <div className="box bottom-box p-0 ">
+      <div className="box bottom-box p-0 is-unselectable">
         <h1 className="is-size-7 column is-12">Objects</h1>
         <span className="column is-12 m-0 p-0 has-text-left is-size-7 pl-4 pt-4 bt-1">
           Choose a Category
