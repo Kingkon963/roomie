@@ -43,7 +43,9 @@ export default function Dropdown({
   }, [category]);
 
   return (
-    <div className={`dropdown ${isOpen ? 'is-active' : ''} w-full`}>
+    <div
+      className={`dropdown ${isOpen ? 'is-active' : ''} w-full`}
+    >
       <div className="dropdown-trigger w-full">
         <button
           className="button w-full is-justify-content-start is-size-6"
@@ -51,11 +53,17 @@ export default function Dropdown({
           aria-haspopup="true"
           aria-controls="dropdown-menu"
           onClick={() => setIsOpen(!isOpen)}
+          tabIndex={0}
+          onBlur={() => setTimeout(() => setIsOpen(false), 100)}
         >
           {selected ? selected.name : '---'}
         </button>
       </div>
-      <div className="dropdown-menu w-full" id="dropdown-menu" role="menu">
+      <div
+        className="dropdown-menu w-full"
+        id="dropdown-menu"
+        role="menu"
+      >
         <div className="dropdown-content">
           { (items.length > 0) ? items : 'Please Select a Room type First' }
         </div>

@@ -63,10 +63,14 @@ export default function PropertyPanel() {
           <div className="column is-4">
             <div className="level">
               <div className="level-item">
-                <button className="button is-small" type="button">A</button>
+                <button className="button is-small p-0" type="button" style={{ background: 'transparent' }}>
+                  <img src="images/mirror.svg" alt="" width="20px" />
+                </button>
               </div>
               <div className="level-item">
-                <button className="button is-small" type="button">{'>'}</button>
+                <button className="button is-small p-0" type="button" style={{ background: 'transparent' }}>
+                  <img src="images/mirrorRotated.svg" alt="" width="20px" />
+                </button>
               </div>
             </div>
 

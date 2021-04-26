@@ -1,4 +1,8 @@
+// import { useState } from 'react';
+
 export default function Cart() {
+//  const [items, setItems] = useState([]);
+
   return (
     <>
       <div className="cart p-3">
