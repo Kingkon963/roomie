@@ -1,28 +1,50 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
-const SizeUnlockIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 334.686 148.975">
-    <g id="Link" transform="translate(-616.935 -444.602)">
-      <path id="Path_1" data-name="Path 1" d="M981.121,457.938v31.1S898,481.841,899.411,531.11c5.488,51.83,76.831,45.123,76.831,45.123l-.088,28.251S864.321,616.54,863.435,531.11C868.574,443.881,981.121,457.938,981.121,457.938Z" transform="translate(-246 -12)" fill="#005cf7" stroke="#707070" strokeWidth="1" />
-      <path id="Path_3" data-name="Path 3" d="M863.435,457.938v31.1s83.125-7.195,81.709,42.074c-5.488,51.83-76.831,45.123-76.831,45.123l.088,28.251S980.235,616.54,981.121,531.11C975.982,443.881,863.435,457.938,863.435,457.938Z" transform="translate(-30 -12)" fill="#005cf7" stroke="#707070" strokeWidth="1" />
-      <path id="Path_2" data-name="Path 2" d="M981.121,520.089v33.259h96.474V520.089Z" transform="translate(-245 -15)" fill="#005cf7" stroke="#707070" strokeWidth="1" />
-    </g>
-  </svg>
-);
-
-const SizeLockIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 254.686 148.975">
-    <g id="Link" transform="translate(-656.935 -444.602)">
-      <path id="Path_1" data-name="Path 1" d="M981.121,457.938v31.1S898,481.841,899.411,531.11c5.488,51.83,76.831,45.123,76.831,45.123l-.088,28.251S864.321,616.54,863.435,531.11C868.574,443.881,981.121,457.938,981.121,457.938Z" transform="translate(-206 -12)" fill="#005cf7" stroke="#707070" strokeWidth="1" />
-      <path id="Path_3" data-name="Path 3" d="M863.435,457.938v31.1s83.125-7.195,81.709,42.074c-5.488,51.83-76.831,45.123-76.831,45.123l.088,28.251S980.235,616.54,981.121,531.11C975.982,443.881,863.435,457.938,863.435,457.938Z" transform="translate(-70 -12)" fill="#005cf7" stroke="#707070" strokeWidth="1" />
-      <path id="Path_2" data-name="Path 2" d="M981.121,520.089v33.259h96.474V520.089Z" transform="translate(-245 -15)" fill="#005cf7" stroke="#707070" strokeWidth="1" />
-    </g>
-  </svg>
-
-);
+// eslint-disable-next-line import/no-unresolved
+import { PropertyContext } from '../context/PropertyContext';
 
 export default function PropertyPanel() {
   const [sizeLocked, setSizeLocked] = useState(false);
+  const [property, setProperty] = useContext(PropertyContext);
+
+  const onChangeHandler = (event) => {
+    if (event.target.name === 'width') {
+      setProperty(
+        {
+          ...property,
+          size: {
+            ...property.size,
+            width: event.target.value,
+          },
+        },
+      );
+    }
+
+    if (event.target.name === 'height') {
+      setProperty(
+        {
+          ...property,
+          size: {
+            ...property.size,
+            height: event.target.value,
+          },
+        },
+      );
+    }
+
+    if (event.target.name === 'angle') {
+      setProperty(
+        {
+          ...property,
+          transform: {
+            ...property.transform,
+            angle: event.target.value,
+          },
+        },
+      );
+    }
+  };
+
   return (
     <>
       <div className="box p-0 is-unselectable">
@@ -33,7 +55,13 @@ export default function PropertyPanel() {
             Size:
           </div>
           <div className="column is-4">
-            <input type="text" className="input w-full m-0 p-0" />
+            <input
+              type="number"
+              className="input w-full m-0 p-0"
+              name="width"
+              value={property.size.width}
+              onChange={(e) => onChangeHandler(e)}
+            />
             <p className="subtitle is-7 mt-1">Width</p>
           </div>
           <div
@@ -43,11 +71,18 @@ export default function PropertyPanel() {
             tabIndex={0}
             onKeyPress={() => {}}
           >
-            {/* <img src="images/sizeLockIcon.svg" alt="sizeLockIcon" /> */}
-            {sizeLocked ? SizeLockIcon : SizeUnlockIcon}
+            {sizeLocked
+              ? <img src="images/sizeLockIcon.svg" alt="sizeLockIcon" />
+              : <img src="images/sizeUnLockIcon.svg" alt="sizeUnLockIcon" />}
           </div>
           <div className="column is-4">
-            <input type="text" className="input w-full m-0 p-0" />
+            <input
+              type="number"
+              className="input w-full m-0 p-0"
+              name="height"
+              value={property.size.height}
+              onChange={(e) => onChangeHandler(e)}
+            />
             <p className="subtitle is-7 mt-1">Height</p>
           </div>
         </div>
@@ -57,18 +92,27 @@ export default function PropertyPanel() {
             Transform:
           </div>
           <div className="column is-4">
-            <input type="text" className="input w-full m-0 p-0" placeholder="0&deg;" />
+            <div className="deg is-flex">
+              <input
+                type="number"
+                className="input w-full m-0 p-0"
+                name="angle"
+                value={property.transform.angle}
+                placeholder="0&deg;"
+                onChange={(e) => onChangeHandler(e)}
+              />
+            </div>
             <p className="subtitle is-7 mt-1">Angle</p>
           </div>
           <div className="column is-4">
             <div className="level">
               <div className="level-item">
-                <button className="button is-small p-0" type="button" style={{ background: 'transparent' }}>
+                <button className="button is-small p-0" type="button">
                   <img src="images/mirror.svg" alt="" width="20px" />
                 </button>
               </div>
               <div className="level-item">
-                <button className="button is-small p-0" type="button" style={{ background: 'transparent' }}>
+                <button className="button is-small p-0" type="button">
                   <img src="images/mirrorRotated.svg" alt="" width="20px" />
                 </button>
               </div>
@@ -93,15 +137,37 @@ export default function PropertyPanel() {
             text-align: center;
             height: 1.4rem;
             appearance: none;
+            font-weight: bold;
           }
           .input:focus, .input:hover, .input:active {
             outline: none !important;
             border: none;
             border-bottom: 1px solid gray;
           }
+          input::-webkit-outer-spin-button, 
+          input::-webkit-inner-spin-button{ 
+            margin-left: -.7rem; 
+          } 
+          {/* .deg{
+            display: inline-block;
+            position: relative;
+          }
+          .deg::after {
+            position: absolute;
+            top: -4px;
+            right: 45%;
+            transition: all .05s ease-in-out;
+            content: "°";
+            font-size: 1.3em;
+          }
+          .deg:hover::after,
+          .deg:focus-within::after {
+            top: -.4em;
+          } */}
           button{
             border: none;
             outline: none;
+            background: transparent;
           }
           `}
       </style>

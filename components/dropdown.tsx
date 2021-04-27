@@ -54,7 +54,7 @@ export default function Dropdown({
           aria-controls="dropdown-menu"
           onClick={() => setIsOpen(!isOpen)}
           tabIndex={0}
-          onBlur={() => setTimeout(() => setIsOpen(false), 100)}
+          onBlur={() => setTimeout(() => setIsOpen(false), 300)}
         >
           {selected ? selected.name : '---'}
         </button>
