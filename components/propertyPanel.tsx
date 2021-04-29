@@ -73,7 +73,7 @@ export default function PropertyPanel() {
           >
             {sizeLocked
               ? <img src="images/sizeLockIcon.svg" alt="sizeLockIcon" />
-              : <img src="images/sizeUnLockIcon.svg" alt="sizeUnLockIcon" />}
+              : <img src="images/sizeUnlockIcon.svg" alt="sizeUnLockIcon" />}
           </div>
           <div className="column is-4">
             <input

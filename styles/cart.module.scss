@@ -1,7 +1,15 @@
+.cart{
+    color: black;
+    background-color: #FFFFFF;
+}
 .itemList {
     max-height: 35vh;
     overflow-y: scroll;
     transition: all 0.5s ease-in-out;
+}
+.deliveryBtn {
+    border: none;
+    border-radius: 25%;
 }
 .totalPrice {
     border-bottom: 1px solid gray;

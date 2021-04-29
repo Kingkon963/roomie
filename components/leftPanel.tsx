@@ -33,13 +33,18 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
     setIsCartOpen(!isCartOpen);
   };
 
+  const resetToHome = () => {
+    setIsMenuOpen(true);
+    setIsCartOpen(false);
+  };
+
   return (
     <div className={styles.leftPanel}>
       <div className="box pb-2 px-0">
         <div className={`hero ${styles.header}`}>
           <div className={`hero-body px-0 ${styles.headerBody}`}>
-            <nav className="level is-mobile">
-              <div className="level-left has-text-centered">
+            <nav className="columns is-mobile">
+              <div className="column is-3 px-0 has-text-centered is-flex is-justify-content-center">
                 <button
                   type="button"
                   className={`is-clickable ${styles.menuToggleBtn}`}
@@ -50,16 +55,22 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
                   </span>
                 </button>
               </div>
-              <div className="level-item has-text-centered">
-                <p className="title has-text-white-ter is-unselectable">
+              <div className="column is-6 has-text-centered is-clickable">
+                <div
+                  className="title has-text-white is-unselectable"
+                  onClick={() => resetToHome()}
+                  onKeyPress={() => {}}
+                  tabIndex={0}
+                  role="button"
+                >
                   Roomie
-                </p>
+                </div>
               </div>
             </nav>
           </div>
           <div className="hero-footer">
-            <div className="level">
-              <div className="level-left">
+            <div className="columns">
+              <div className="column is-3">
                 <button className={styles.menuToggleBtn} type="button" style={{ visibility: 'hidden' }}>
                   <span className="icon has-text-white-ter">
                     <i className="fas fa-bars ">
@@ -68,7 +79,7 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
                   </span>
                 </button>
               </div>
-              <div className="level-item">
+              <div className="column is-6">
                 <p className="subtitle is-size-7 has-text-white-ter mb-3">
                   Choose Room Type
                 </p>

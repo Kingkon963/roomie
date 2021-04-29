@@ -16,7 +16,7 @@ export default function Cart() {
 
   return (
     <>
-      <div className="cart p-3 is-unselectable">
+      <div className={`${styles.cart} p-3 is-unselectable`}>
         <h1 className="title is-size-5">Your Bag</h1>
         <h1 className="subtitle is-size-7">
           {`${cartItemsTotal} Items`}
@@ -56,7 +56,7 @@ export default function Cart() {
             <div className="column is-12">
               <div className="columns">
                 <div className="column is-4 is-flex is-align-content-center is-justify-content-center">
-                  <button type="button" className="px-5 my-auto">
+                  <button type="button" className={`${styles.deliveryBtn} px-5 is-clickable`}>
                     <FontAwesomeIcon icon={faTruck} />
                     Free
                   </button>
@@ -73,15 +73,6 @@ export default function Cart() {
           </div>
           )}
       </div>
-
-      <style jsx>
-        {`
-          .cart{
-            color: black;
-            background-color: #FFFFFF;
-          }
-        `}
-      </style>
     </>
   );
 }
