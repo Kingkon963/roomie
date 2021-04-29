@@ -11,6 +11,8 @@ import { CategoryProvider } from '../context/CategoryContext';
 // eslint-disable-next-line import/no-unresolved
 import { PropertyProvider } from '../context/PropertyContext';
 // eslint-disable-next-line import/no-unresolved
+import { CartProvider } from '../context/CartContext';
+// eslint-disable-next-line import/no-unresolved
 import Category from '../interfaces/Category';
 
 import getCategories from '../data/categories';
@@ -19,23 +21,25 @@ const Index = ({ categories }: {categories: Category[]}) => (
   <Layout title="Home">
     <section className="section main-section">
       <div className="container is-fluid">
-        <CategoryProvider>
-          <PropertyProvider>
-            <div className="columns">
-              <div className="column has-text-centered">
-                <LeftPanel categories={categories} />
-              </div>
+        <CartProvider>
+          <CategoryProvider>
+            <PropertyProvider>
+              <div className="columns">
+                <div className="column has-text-centered">
+                  <LeftPanel categories={categories} />
+                </div>
 
-              <div className="column has-text-centered is-half">
-                <h1>Middle</h1>
-              </div>
+                <div className="column has-text-centered is-half">
+                  <h1>Middle</h1>
+                </div>
 
-              <div className="column has-text-centered">
-                <RightPanel />
+                <div className="column has-text-centered">
+                  <RightPanel />
+                </div>
               </div>
-            </div>
-          </PropertyProvider>
-        </CategoryProvider>
+            </PropertyProvider>
+          </CategoryProvider>
+        </CartProvider>
       </div>
     </section>
 

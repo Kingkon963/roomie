@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Image from 'next/image';
 
 // eslint-disable-next-line import/no-unresolved
 import SubCategory from '../interfaces/SubCategory';
+// eslint-disable-next-line import/no-unresolved
+import { CartContext } from '../context/CartContext';
 import styles from '../styles/objectTiles.module.scss';
 
 export default function ObjectTiles({
@@ -11,17 +13,27 @@ export default function ObjectTiles({
   selected: SubCategory,
 }) {
   const [tiles, setTiles] = useState([]);
+  const [cartItems, , , addCartItem] = useContext(CartContext);
+
   const generateKey = () => `key-${Math.random()}-${Date.now()}`;
+
   useEffect(() => {
     if (selected) {
       const updatedTiles = selected.objects.map((obj) => (
-        <div className={`tile is-child ${styles.isChild} box is-6 is-flex is-justify-content-center is-clickable`} key={generateKey()}>
+        <div
+          className={`tile is-child ${styles.isChild} box is-6 is-flex is-justify-content-center is-clickable`}
+          key={generateKey()}
+          onClick={() => addCartItem(cartItems, obj)}
+          role="button"
+          onKeyPress={() => {}}
+          tabIndex={0}
+        >
           <Image src={obj.img} width="100" height="100" draggable={false} />
         </div>
       ));
       setTiles(updatedTiles);
     }
-  }, [selected]);
+  }, [selected, cartItems]);
 
   return (
     <div className={`tile is-ancestor ${styles.isAncestor}`}>
