@@ -57,7 +57,7 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
               </div>
               <div className="column is-6 has-text-centered is-clickable">
                 <div
-                  className="title has-text-white is-unselectable"
+                  className={`title has-text-white is-unselectable ${styles.logo}`}
                   onClick={() => resetToHome()}
                   onKeyPress={() => {}}
                   tabIndex={0}
@@ -69,7 +69,7 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
             </nav>
           </div>
           <div className="hero-footer">
-            <div className="columns">
+            <div className="columns is-mobile">
               <div className="column is-3">
                 <button className={styles.menuToggleBtn} type="button" style={{ visibility: 'hidden' }}>
                   <span className="icon has-text-white-ter">
@@ -80,7 +80,7 @@ export default function LeftPanel({ categories } : {categories: Category[]}) {
                 </button>
               </div>
               <div className="column is-6">
-                <p className="subtitle is-size-7 has-text-white-ter mb-3">
+                <p className={`subtitle has-text-white-ter mb-3 ${styles.subtitle}`}>
                   Choose Room Type
                 </p>
               </div>

@@ -1,3 +1,5 @@
+$sm: 576px;
+
 .leftPanel {
     background-color: transparent;
     transition: all 0.5s ease-in-out;
@@ -22,7 +24,7 @@
     .userAddr{
         font-size: .5rem;
     }
-    @media (min-width: '576px'){
+    @media (min-width: $sm){
         .userName{
             font-size: .9rem;
         }
@@ -31,3 +33,19 @@
         }
     }
 }   
+
+.logo {
+    font-size: 1.7rem;
+}
+.subtitle {
+    font-size: .6rem;
+}
+
+@media (min-width: $sm) {
+    .logo {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: .7rem;
+    }
+}
