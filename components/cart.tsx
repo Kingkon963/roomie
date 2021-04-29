@@ -1,16 +1,17 @@
 import { useContext } from 'react';
-import Image from 'next/image';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 
 // eslint-disable-next-line import/no-unresolved
 import { CartContext } from '../context/CartContext';
+// eslint-disable-next-line import/no-unresolved
+import CartItem from './cartItem';
 
 import styles from '../styles/cart.module.scss';
 
 export default function Cart() {
-  const [cartItems, cartItemsTotal, totalAmount, , removeCartItem] = useContext(CartContext);
+  const [cartItems, cartItemsTotal, totalAmount] = useContext(CartContext);
 
   const generateKey = () => `key-${Math.random()}-${Date.now()}`;
 
@@ -24,29 +25,7 @@ export default function Cart() {
         <div className={`columns is-flex-wrap-wrap ${styles.itemList}`}>
           {(cartItems.length > 0)
           && cartItems.map((obj) => (
-            <div className="column is-12" key={generateKey()}>
-              <div className="columns">
-                <div className="column is-4">
-                  <Image src={obj.img} unsized />
-                </div>
-                <div className="column is-6 has-text-left">
-                  <h1>{obj.name}</h1>
-                  <p>
-                    $
-                    {obj.price}
-                  </p>
-                </div>
-                <div className="column is-2">
-                  x
-                  {obj.quantity}
-                  <FontAwesomeIcon
-                    icon={faTrashAlt}
-                    className="is-clickable"
-                    onClick={() => removeCartItem(cartItems, obj)}
-                  />
-                </div>
-              </div>
-            </div>
+            <CartItem item={obj} key={generateKey()} />
           ))}
         </div>
 
