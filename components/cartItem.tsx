@@ -6,10 +6,12 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 // eslint-disable-next-line import/no-unresolved
 import { CartContext } from '../context/CartContext';
 
+import styles from '../styles/cartItem.module.scss';
+
 export default function CartItem({ item }: any) {
-  const [cartItems, , , , removeCartItem] = useContext(CartContext);
+  const [, , , , removeCartItem] = useContext(CartContext);
   return (
-    <div className="column is-12">
+    <div className={`column is-12 ${styles.cartItem}`}>
       <div className="columns">
         <div className="column is-4">
           <Image src={item.img} unsized />
@@ -27,7 +29,7 @@ export default function CartItem({ item }: any) {
           <FontAwesomeIcon
             icon={faTrashAlt}
             className="is-clickable"
-            onClick={() => removeCartItem(cartItems, item)}
+            onClick={() => removeCartItem(item)}
           />
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function ObjectTiles({
   selected: SubCategory,
 }) {
   const [tiles, setTiles] = useState([]);
-  const [cartItems, , , addCartItem] = useContext(CartContext);
+  const [, , , addCartItem] = useContext(CartContext);
 
   const generateKey = () => `key-${Math.random()}-${Date.now()}`;
 
@@ -23,7 +23,7 @@ export default function ObjectTiles({
         <div
           className={`tile is-child ${styles.isChild} box is-6 is-flex is-justify-content-center is-clickable`}
           key={generateKey()}
-          onClick={() => addCartItem(cartItems, obj)}
+          onClick={() => addCartItem(obj)}
           role="button"
           onKeyPress={() => {}}
           tabIndex={0}
@@ -33,7 +33,7 @@ export default function ObjectTiles({
       ));
       setTiles(updatedTiles);
     }
-  }, [selected, cartItems]);
+  }, [selected]);
 
   return (
     <div className={`tile is-ancestor ${styles.isAncestor}`}>

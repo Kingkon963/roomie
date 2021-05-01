@@ -1,4 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
+import {
+  createContext, useState, useEffect, useCallback,
+} from 'react';
 
 export const CartContext = createContext(null);
 
@@ -31,45 +33,47 @@ export const CartProvider = ({ children }: any) => {
     }
   }, [cartItems]);
 
-  const addCartItem = (prevCartItems, item) => {
-    const hasItem = prevCartItems.find((addedItem) => addedItem.id === item.id);
+  const addCartItem = useCallback((item) => {
+    setCartItems((prevCartItems) => {
+      const hasItem = prevCartItems.find((addedItem) => addedItem.id === item.id);
 
-    if (hasItem) {
-      const newCartItems = [...prevCartItems];
-      newCartItems.map((i: any) => {
-        const cartItem = i;
-        if (cartItem.id === hasItem.id) {
-          cartItem.quantity += 1;
-        }
-        return cartItem;
-      });
+      if (hasItem) {
+        const newCartItems = [...prevCartItems];
+        newCartItems.map((i: any) => {
+          const cartItem = i;
+          if (cartItem.id === hasItem.id) {
+            cartItem.quantity += 1;
+          }
+          return cartItem;
+        });
 
-      setCartItems(newCartItems);
-    } else {
+        return newCartItems;
+      }
       const newCartItems = prevCartItems ? [...prevCartItems] : [];
       newCartItems.push(item);
 
-      setCartItems(newCartItems);
-    }
-  };
+      return newCartItems;
+    });
+  }, []);
 
-  const removeCartItem = (prevCartItems, item) => {
-    let newCartItems = [...prevCartItems];
-    const reducedItem = { ...item, quantity: (item.quantity - 1) };
-    console.log(reducedItem);
-    if (reducedItem.quantity > 0) {
-      newCartItems.map((i) => {
-        const cartItem = i;
-        if (cartItem.id === reducedItem.id) cartItem.quantity = reducedItem.quantity;
-        return cartItem;
-      });
-      console.log(newCartItems);
-    } else {
-      newCartItems = newCartItems.filter((cartItem) => cartItem !== item);
-    }
+  const removeCartItem = useCallback((item) => {
+    setCartItems((prevCartItems) => {
+      let newCartItems = [...prevCartItems];
+      const reducedItem = { ...item, quantity: (item.quantity - 1) };
 
-    setCartItems(newCartItems);
-  };
+      if (reducedItem.quantity > 0) {
+        newCartItems.map((i) => {
+          const cartItem = i;
+          if (cartItem.id === reducedItem.id) cartItem.quantity = reducedItem.quantity;
+          return cartItem;
+        });
+      } else {
+        newCartItems = newCartItems.filter((cartItem) => cartItem !== item);
+      }
+
+      return newCartItems;
+    });
+  }, []);
 
   return (
     <CartContext.Provider value={[

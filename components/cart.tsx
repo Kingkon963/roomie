@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
@@ -12,8 +12,14 @@ import styles from '../styles/cart.module.scss';
 
 export default function Cart() {
   const [cartItems, cartItemsTotal, totalAmount] = useContext(CartContext);
+  const [items, setItems] = useState(<></>);
+  const generateKey = () => `CartItem-${Math.random()}-${Date.now()}`;
 
-  const generateKey = () => `key-${Math.random()}-${Date.now()}`;
+  useEffect(() => {
+    setItems(cartItems.map((obj) => (
+      <CartItem item={obj} key={generateKey()} />
+    )));
+  }, [cartItems.length]);
 
   return (
     <>
@@ -24,9 +30,7 @@ export default function Cart() {
         </h1>
         <div className={`columns is-flex-wrap-wrap ${styles.itemList}`}>
           {(cartItems.length > 0)
-          && cartItems.map((obj) => (
-            <CartItem item={obj} key={generateKey()} />
-          ))}
+          && items}
         </div>
 
         {(cartItems.length > 0)
