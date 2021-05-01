@@ -14,7 +14,7 @@ export default function CartItem({ item }: any) {
     <div className={`column is-12 ${styles.cartItem}`}>
       <div className="columns">
         <div className="column is-4">
-          <Image src={item.img} unsized />
+          <Image src={item.img} unsized loading="eager" />
         </div>
         <div className="column is-6 has-text-left">
           <h1>{item.name}</h1>

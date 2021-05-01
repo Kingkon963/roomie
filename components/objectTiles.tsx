@@ -28,7 +28,7 @@ export default function ObjectTiles({
           onKeyPress={() => {}}
           tabIndex={0}
         >
-          <Image src={obj.img} width="100" height="100" draggable={false} />
+          <Image src={obj.img} width="100" height="100" draggable={false} loading="eager" />
         </div>
       ));
       setTiles(updatedTiles);
