@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 // eslint-disable-next-line import/no-unresolved
 import { CartContext } from '../context/CartContext';
@@ -17,7 +18,15 @@ export default function Cart() {
 
   useEffect(() => {
     setItems(cartItems.map((obj) => (
-      <CartItem item={obj} key={generateKey()} />
+      <CSSTransition
+        in={cartItems.length > 0}
+        appear
+        exit
+        classNames="fade"
+        timeout={200}
+      >
+        <CartItem item={obj} key={generateKey()} />
+      </CSSTransition>
     )));
   }, [cartItems.length]);
 
@@ -29,8 +38,9 @@ export default function Cart() {
           {`${cartItemsTotal} Items`}
         </h1>
         <div className={`columns is-flex-wrap-wrap ${styles.itemList}`}>
-          {(cartItems.length > 0)
-          && items}
+          <TransitionGroup>
+            {items}
+          </TransitionGroup>
         </div>
 
         {(cartItems.length > 0)

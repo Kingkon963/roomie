@@ -43,3 +43,20 @@ body {
     width: 0;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }  
+
+
+// fade animation. Used in React-Transition-Group
+.fade-enter{
+    transform: scale(0);
+  }
+.fade-enter-active{
+    transform: scale(1);
+    transition: all 200ms;
+}
+.fade-exit{
+    transform: scale(1);
+  }
+.fade-exit-active{
+    transform: scale(0);
+    transition: all 200ms;
+}

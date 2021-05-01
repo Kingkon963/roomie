@@ -1,13 +1,3 @@
 .cartItem {
     transition: all 0.5s ease-out;
-    animation-name: popUp;
-    animation-duration: .5s;
-}
-@keyframes popUp {
-    from{
-        transform: scale(0);
-    }
-    to{
-        transform: scale(1);
-    }
 }
