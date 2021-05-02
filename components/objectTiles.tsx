@@ -37,7 +37,7 @@ export default function ObjectTiles({
 
   return (
     <div className={`tile is-ancestor ${styles.isAncestor}`}>
-      <div className="tile is-parent is-flex-wrap-wrap">
+      <div className={`tile is-parent is-flex-wrap-wrap ${styles.isParent}`}>
         {(tiles.length > 0) ? tiles : (selected && `No ${selected.name} Found!`)}
       </div>
 

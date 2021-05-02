@@ -1,7 +1,10 @@
 .isAncestor{
     overflow-y: scroll;
-    max-height: 30vh;
-}
-.isChild{
-    background-color: #F8F8F8;
+    max-height: 35vh;
+    .isParent{
+        
+        .isChild{
+            background-color: #F8F8F8;
+        }
+    }
 }

@@ -22,6 +22,13 @@ const getCategories = () => {
               price: 80,
               quantity: 1,
             },
+            {
+              id: 2,
+              name: 'Chair3',
+              img: '/images/chair3.jpg',
+              price: 150,
+              quantity: 1,
+            },
           ],
         },
         {

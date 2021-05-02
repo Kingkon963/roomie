@@ -1,34 +1,11 @@
 .cart{
     color: black;
     background-color: #FFFFFF;
+    transition: all 200ms;
 }
 .itemList {
     max-height: 35vh;
+    min-height: 35vh;
     overflow-y: scroll;
     transition: height 200ms;
-}
-.deliveryBtn {
-    border: none;
-    border-radius: 25%;
-}
-.totalPrice {
-    border-bottom: 1px solid gray;
-}
-
-// Animations
-.enter {
-    border: 3px solid red;
-}
-.enterActive {
-    border: 3px solid green;
-    transition: all 1000ms linear;
-}
-
-.exit {
-    transform: scale(1);
-}
-
-.exitActive {
-    transform: scale(0);
-    transition: all 1s;
 }

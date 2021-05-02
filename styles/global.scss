@@ -46,17 +46,35 @@ body {
 
 
 // fade animation. Used in React-Transition-Group
+.fade-appear{
+    transform: scale(.9);
+    opacity: 0;
+  }
+.fade-appear-active{
+    transform: scale(1);
+    opacity: 1;
+    transition: all 500ms ease-in;
+}
+.fade-appear-done {
+    display: block !important;
+}
 .fade-enter{
-    transform: scale(0);
+    transform: scale(.9);
+    opacity: 0;
   }
 .fade-enter-active{
     transform: scale(1);
-    transition: all 200ms;
+    opacity: 1;
+    transition: all 500ms ease-in;
 }
+
 .fade-exit{
-    transform: scale(1);
-  }
-.fade-exit-active{
-    transform: scale(0);
-    transition: all 200ms;
+    opacity: 1;
+}
+.fade-exit.fade-exit-active{
+    opacity: 0;
+    transition: all 500ms ease-out;
+}
+.fade-exit-done {
+    visibility: hidden;
 }
